@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Segredos (nunca versionar)
+.env
+
+# Dados gerados (as pastas são mantidas com .gitkeep)
+*.db
+**/intermediarios/*
+!**/intermediarios/.gitkeep
+**/logs/*
+!**/logs/.gitkeep
