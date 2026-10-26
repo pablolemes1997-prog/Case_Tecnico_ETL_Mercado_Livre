@@ -1,24 +1,6 @@
 <div align="center">
 
 # Desafio ETL — Mercado Livre
-
-## Sumário
-- [Objetivo do projeto](#-objetivo-do-projeto)
-- [Arquitetura da solução](#-arquitetura-da-solução)
-- [Fluxo ETL](#-fluxo-etl)
-- [Estrutura de diretórios](#-estrutura-de-diretórios)
-- [Como instalar as dependências](#-como-instalar-as-dependências)
-- [Como configurar o ambiente](#-como-configurar-o-ambiente)
-- [Como executar o projeto](#-como-executar-o-projeto)
-- [Como executar cada etapa](#-como-executar-cada-etapa)
-- [Modelagem de dados](#-modelagem-de-dados)
-- [DDL das tabelas](#-ddl-das-tabelas)
-- [Queries do desafio](#-queries-do-desafio)
-- [Respostas do case](#-respostas-do-case)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [Oportunidades de melhoria](#-oportunidades-de-melhoria)
-- [Autor](#-autor)
-
 ## Objetivo do projeto
 
 Apoiar um vendedor *Best Seller* do Mercado Libre Argentina com dados das publicações de **Samsung Galaxy S24** (somente produtos novos), respondendo:
