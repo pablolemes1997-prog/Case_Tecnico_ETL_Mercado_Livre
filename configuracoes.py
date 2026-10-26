@@ -1,7 +1,6 @@
 """Configuração central do projeto.
 
-Lê o arquivo .env (via python-dotenv) e reúne em um único lugar: URL da API,
-endpoints, paginação, produto pesquisado, banco de dados e opções do ETL.
+Lê o arquivo .env (via python-dotenv)
 Credenciais nunca ficam no código: vêm somente de variáveis de ambiente.
 """
 import os
