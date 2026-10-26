@@ -4,9 +4,6 @@
 
 Produto: Samsung Galaxy S24 · Site: MLA (Argentina) · Somente produtos novos · Tabela: `etl_publications`.
 
-## Fonte das evidências
-
-Os resultados abaixo foram obtidos na execução de **07/09/2026**, que carregou **16 publicações** (`JOB_RUN` = `2026-09-07 11:32:10`). Para reproduzir ou atualizar:
 
 ```bash
 python executar.py                       # executa o ETL
