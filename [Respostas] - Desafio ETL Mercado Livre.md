@@ -111,8 +111,6 @@ WHERE JOB_RUN = (SELECT MAX(JOB_RUN) FROM etl_publications);
 |---|
 | 81.25 |
 
-> ⚠️ Este número foi gerado antes da correção da regra de garantia (versão anterior tratava garantia vazia como "com garantia"). Reexecute o ETL para confirmar o valor com a regra atual.
-
 ---
 
 ## Pergunta 5
