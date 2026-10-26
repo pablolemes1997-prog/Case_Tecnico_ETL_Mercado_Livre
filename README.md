@@ -51,30 +51,38 @@ sequenceDiagram
 .
 ├── [001] - Configuracoes/
 │   └── configuracoes.py            # configuração central (lê o .env)
+
 ├── [002] - Autenticacao API/
 │   └── autenticacao_oauth.py       # OAuth, access token e refresh token
+
 ├── [003] - Extracao/
 │   ├── cliente_api.py              # sessão HTTP, retry e paginação
 │   ├── extracao_publicacoes.py     # produtos e publicações novas
 │   ├── extracao_itens.py           # detalhes dos itens (em lote)
 │   └── extracao_moedas.py          # moedas e taxas de conversão
+
 ├── [004] - Transformacao/
 │   ├── regras_garantia.py          # regra de garantia
 │   ├── transformacao_publicacoes.py
 │   └── validacao_publicacoes.py    # validação de qualidade
+
 ├── [005] - Carga/
 │   └── carga_publicacoes.py        # gravação em lote e transacional
+
 ├── [006] - Banco de Dados/
 │   ├── ddl.sql                     # modelo de dados
 │   ├── conexao_banco.py
 │   ├── criacao_tabelas.py
 │   └── intermediarios/             # saídas das etapas (não versionado)
+
 ├── [007] - Consultas SQL/
 │   ├── consultas.sql               # queries do desafio
 │   └── executar_consultas.py
+
 ├── [008] - Utilitarios/
 │   ├── excecoes.py · logs.py · arquivos.py
 │   └── logs/                       # arquivo etl.log (não versionado)
+
 ├── [009] - Documentacao/
 │   ├── [Respostas] - Desafio ETL Mercado Livre.md
 │   ├── Arquitetura.md · Dicionario de Dados.md · Revisao Tecnica.md
