@@ -1,12 +1,4 @@
-"""Ponto de entrada do ETL.
-
-Uso:
-    python executar.py                          # pipeline completo
-    python executar.py --etapa extracao         # só extração  -> grava 1_extracao.json
-    python executar.py --etapa transformacao    # só transformação -> grava 2_transformacao.json
-    python executar.py --etapa carga            # só carga no banco
-    python executar.py --etapa consultas        # roda as consultas SQL e grava os resultados
-"""
+"""Ponto de entrada do ETL."""
 import caminhos_projeto  # noqa: F401  (registra as pastas numeradas)
 
 import argparse
