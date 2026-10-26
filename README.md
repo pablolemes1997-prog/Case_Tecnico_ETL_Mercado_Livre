@@ -9,7 +9,7 @@ Apoiar um vendedor *Best Seller* do Mercado Libre Argentina com dados das public
 2. Qual a média de vendas por vendedor?
 3. Qual o preço médio em dólares?
 4. Qual o percentual de itens com garantia?
-5. Quais métodos de envio são oferecidos?
+5. Quais métodos de envio são oferecidos? 
 
 A automação acessa as APIs públicas (`/currencies`, `/currency_conversions`, `/search`, `/items`), pagina de 50 em 50 registros, grava em banco local e inclui o campo `JOB_RUN` (mesma data/hora para todos os registros de uma execução) em todas as tabelas.
 
