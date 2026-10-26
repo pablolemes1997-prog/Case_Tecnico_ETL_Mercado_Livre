@@ -1,18 +1,8 @@
 <div align="center">
 
-# 🛒 Desafio ETL — Mercado Livre
+# Desafio ETL — Mercado Livre
 
-**Pipeline ETL em Python que extrai publicações de Samsung Galaxy S24 do Mercado Libre Argentina, trata os dados e responde às perguntas de negócio com SQL.**
-
-![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-3-003B57?logo=sqlite&logoColor=white)
-![Requests](https://img.shields.io/badge/Requests-HTTP-2C5BB4)
-![python-dotenv](https://img.shields.io/badge/python--dotenv-.env-ECD53F)
-![API](https://img.shields.io/badge/API-Mercado%20Libre-FFE600)
-
-</div>
-
-## 📑 Sumário
+## Sumário
 - [Objetivo do projeto](#-objetivo-do-projeto)
 - [Arquitetura da solução](#-arquitetura-da-solução)
 - [Fluxo ETL](#-fluxo-etl)
@@ -29,7 +19,7 @@
 - [Oportunidades de melhoria](#-oportunidades-de-melhoria)
 - [Autor](#-autor)
 
-## 🎯 Objetivo do projeto
+## Objetivo do projeto
 
 Apoiar um vendedor *Best Seller* do Mercado Libre Argentina com dados das publicações de **Samsung Galaxy S24** (somente produtos novos), respondendo:
 
@@ -41,7 +31,7 @@ Apoiar um vendedor *Best Seller* do Mercado Libre Argentina com dados das public
 
 A automação acessa as APIs públicas (`/currencies`, `/currency_conversions`, `/search`, `/items`), pagina de 50 em 50 registros, grava em banco local e inclui o campo `JOB_RUN` (mesma data/hora para todos os registros de uma execução) em todas as tabelas.
 
-## 🏗️ Arquitetura da solução
+## Arquitetura da solução
 
 ```mermaid
 flowchart LR
@@ -56,7 +46,7 @@ flowchart LR
     UT["[008] Utilitários<br/>(erros, logs, arquivos)"] -.apoio.-> EX & TR & CG
 ```
 
-## 🔄 Fluxo ETL
+## Fluxo ETL
 
 ```mermaid
 sequenceDiagram
@@ -73,7 +63,7 @@ sequenceDiagram
     U->>DB: cria tabelas (ddl.sql) e grava com o JOB_RUN
 ```
 
-## 🗂️ Estrutura de diretórios
+## Estrutura de diretórios
 
 ```text
 .
@@ -113,9 +103,9 @@ sequenceDiagram
 └── README.md
 ```
 
-> ℹ️ Os nomes das pastas têm colchetes e espaços, então não são pacotes Python. `caminhos_projeto.py` as adiciona ao caminho de importação e os módulos são importados pelo nome do arquivo (ex.: `from configuracoes import TAMANHO_PAGINA`). Por isso, **os nomes dos arquivos `.py` são únicos** em todo o projeto.
+> Os nomes das pastas têm colchetes e espaços, então não são pacotes Python. `caminhos_projeto.py` as adiciona ao caminho de importação e os módulos são importados pelo nome do arquivo (ex.: `from configuracoes import TAMANHO_PAGINA`). Por isso, **os nomes dos arquivos `.py` são únicos** em todo o projeto.
 
-## 📦 Como instalar as dependências
+## Como instalar as dependências
 
 Requisito: Python 3.12 ou superior.
 
@@ -127,7 +117,7 @@ pip install -r requirements.txt
 
 Dependências: `requests` e `python-dotenv` (o SQLite já vem com o Python).
 
-## ⚙️ Como configurar o ambiente
+## Como configurar o ambiente
 
 ```powershell
 copy .env.example .env              # Linux/macOS: cp .env.example .env
@@ -144,7 +134,7 @@ Preencha no `.env` os dados da sua aplicação cadastrada no DevCenter do Mercad
 
 Os demais parâmetros (URL, endpoints, produto pesquisado, paginação, banco) já vêm com valor padrão em `.env.example` e são centralizados em `[001] - Configuracoes/configuracoes.py`.
 
-> 🔒 O `.env` está no `.gitignore`. **Nunca** publique Client ID, Client Secret, code ou tokens no GitHub nem os cole em conversas ou prompts.
+> O `.env` está no `.gitignore`. **Nunca** publique Client ID, Client Secret, code ou tokens no GitHub nem os cole em conversas ou prompts.
 
 **Primeira autenticação:** na primeira execução o `ML_CODE` é trocado por `ML_ACCESS_TOKEN` e `ML_REFRESH_TOKEN` (gravados no `.env`) e o code é removido. Depois disso o token é renovado automaticamente. Se o code expirar (vale poucos minutos), gere outro:
 
@@ -153,7 +143,7 @@ python autenticar.py --url              # exige ML_REDIRECT_URI; abra a URL e au
 python autenticar.py --codigo TG-xxxx   # troca o code por tokens
 ```
 
-## ▶️ Como executar o projeto
+## Como executar o projeto
 
 ```bash
 python executar.py
@@ -161,7 +151,7 @@ python executar.py
 
 Executa Extração → Transformação → Carga. Retorna código `0` em sucesso e `1` em erro; os logs vão para o console e para `[008] - Utilitarios/logs/etl.log`.
 
-## 🧩 Como executar cada etapa
+## Como executar cada etapa
 
 ```bash
 python executar.py --etapa extracao        # 1) API -> [006]/intermediarios/1_extracao.json
@@ -172,7 +162,7 @@ python executar.py --etapa consultas       # 4) roda consultas.sql -> Resultados
 
 As etapas devem ser executadas nessa ordem. Rodar a carga duas vezes com o mesmo arquivo é bloqueado (mesmo `JOB_RUN`).
 
-## 🧬 Modelagem de dados
+## Modelagem de dados
 
 ```mermaid
 erDiagram
@@ -202,7 +192,7 @@ erDiagram
 
 Todas as tabelas têm `JOB_RUN`, o que preserva o histórico de execuções. O dicionário completo está em [`[009] - Documentacao/Dicionario de Dados.md`](%5B009%5D%20-%20Documentacao/Dicionario%20de%20Dados.md).
 
-## 🗃️ DDL das tabelas
+## DDL das tabelas
 
 Arquivo `[006] - Banco de Dados/ddl.sql` (executado automaticamente pelo ETL):
 
@@ -246,7 +236,7 @@ CREATE INDEX IF NOT EXISTS idx_publications_seller  ON etl_publications (JOB_RUN
 CREATE INDEX IF NOT EXISTS idx_publications_product ON etl_publications (JOB_RUN, product_id);
 ```
 
-## 🔎 Queries do desafio
+## Queries do desafio
 
 Todas consideram apenas a **última execução**. Arquivo: `[007] - Consultas SQL/consultas.sql`.
 
@@ -303,7 +293,7 @@ GROUP BY shipping_mode, shipping_logistic_type, shipping_free
 ORDER BY publication_count DESC;
 ```
 
-## ✅ Respostas do case
+## Respostas do case API / ETL
 
 Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desafio ETL Mercado Livre`](%5B009%5D%20-%20Documentacao/%5BRespostas%5D%20-%20Desafio%20ETL%20Mercado%20Livre.md).
 
@@ -317,7 +307,7 @@ Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desa
 
 \* Calculado antes da correção da regra de garantia. Reexecute o ETL e `python executar.py --etapa consultas` para os valores atualizados.
 
-## 🧰 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 | Tecnologia | Uso |
 |---|---|
@@ -328,7 +318,7 @@ Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desa
 | SQL | Modelagem e consultas analíticas |
 | Mermaid | Diagramas da documentação |
 
-## 🚀 Oportunidades de melhoria
+## Oportunidades de melhoria
 
 - Migrar de SQLite para PostgreSQL ou BigQuery.
 - Criar tabela de controle de execuções (início, fim, status, quantidade, erros).
@@ -338,6 +328,6 @@ Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desa
 - Publicar um painel analítico (por exemplo, Looker Studio sobre BigQuery).
 - Evoluir o modelo para dimensional (vendedor, produto, envio).
 
-## 👤 Autor
+## Autor
 
 **Autor: Pablo Felix**
