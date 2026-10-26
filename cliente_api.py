@@ -1,4 +1,5 @@
-"""Cliente HTTP comum: sessão com novas tentativas, renovação de token e paginação."""
+"""Cliente HTTP"""
+
 import logging
 
 import requests
@@ -13,7 +14,7 @@ REGISTRO = logging.getLogger(__name__)
 
 
 def _criar_sessao():
-    """Cria uma sessão reutilizável que tenta de novo em erros 429 e 5xx."""
+    """Cria uma sessão reutilizável que tenta de novo em erros 429 - 5x."""
     politica_novas_tentativas = Retry(
         total=3, backoff_factor=1, raise_on_status=False,
         status_forcelist=(429, 500, 502, 503, 504), allowed_methods=("GET",),
