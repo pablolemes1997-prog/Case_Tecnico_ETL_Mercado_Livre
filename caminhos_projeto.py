@@ -1,10 +1,5 @@
-"""Registra as pastas numeradas no caminho de importação do Python.
+"""Registra as pastas numeradas no caminho de importação do Python."""
 
-As pastas "[001] - Configuracoes", "[002] - Autenticacao API" etc. têm colchetes e
-espaços no nome, então não podem ser importadas como pacotes. Por isso cada
-pasta é adicionada ao caminho de importação e os módulos são importados
-diretamente pelo nome do arquivo (ex.: `from configuracoes import URL_BASE_API`).
-"""
 import sys
 from pathlib import Path
 
