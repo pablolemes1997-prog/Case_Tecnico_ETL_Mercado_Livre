@@ -1,8 +1,5 @@
-"""Autenticação OAuth 2.0 com o Mercado Livre.
+"""Autenticação Mercado Livre por tokens (1ª vez) """
 
-Concentra tudo sobre credenciais: troca do code por tokens (1ª vez), renovação
-do access token com o refresh token e gravação dos tokens no arquivo .env.
-"""
 import logging
 import os
 from urllib.parse import quote
@@ -34,7 +31,7 @@ def limpar_codigo_autorizacao(codigo):
 
 
 def _gravar_tokens(resposta_api):
-    """Grava os tokens no .env (uso futuro) e no ambiente do processo (uso imediato)."""
+    """Grava os tokens no .env e no ambiente do processo (uso imediato)."""
     campos = (("ML_ACCESS_TOKEN", "access_token"), ("ML_REFRESH_TOKEN", "refresh_token"))
     for nome_variavel, campo_resposta in campos:
         valor = resposta_api.get(campo_resposta)
@@ -61,7 +58,7 @@ def _solicitar_token(corpo_requisicao):
 
 
 def trocar_codigo_por_tokens(codigo, uri_redirecionamento=None):
-    """Primeira autenticação. O code é de uso único e expira em poucos minutos."""
+    """O code é de uso único e expira."""
     corpo_requisicao = {
         "grant_type": "authorization_code",
         "client_id": obter_variavel_ambiente("ML_APP_ID", obrigatoria=True),
@@ -109,5 +106,4 @@ def garantir_tokens():
     if obter_variavel_ambiente("ML_CODE"):
         return _consumir_codigo_autorizacao()
     raise ErroAutenticacao(
-        "Sem ML_REFRESH_TOKEN nem ML_CODE no .env. Gere um code com: python autenticar.py --url"
     )
