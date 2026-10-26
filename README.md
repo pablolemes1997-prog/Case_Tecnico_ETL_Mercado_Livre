@@ -180,8 +180,7 @@ erDiagram
     }
 ```
 
-Todas as tabelas têm `JOB_RUN`, o que preserva o histórico de execuções. O dicionário completo está em [`[009] - Documentacao/Dicionario de Dados.md`](%5B009%5D%20-%20Documentacao/Dicionario%20de%20Dados.md).
-
+Todas as tabelas têm `JOB_RUN`, o que preserva o histórico de execuções. O dicionário completo está em [`[009] - Documentacao/Dicionario de Dados.md`]
 ## DDL das tabelas
 
 Arquivo `[006] - Banco de Dados/ddl.sql` (executado automaticamente pelo ETL):
@@ -285,7 +284,7 @@ ORDER BY publication_count DESC;
 
 ## Respostas do case API / ETL
 
-Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desafio ETL Mercado Livre`](%5B009%5D%20-%20Documentacao/%5BRespostas%5D%20-%20Desafio%20ETL%20Mercado%20Livre.md).
+Documento completo (respostas, SQL, lógica e evidências): [`[Respostas] - Desafio ETL Mercado Livre`]
 
 | Pergunta | Resposta (execução de 07/09/2026, 16 publicações) |
 |---|---|
