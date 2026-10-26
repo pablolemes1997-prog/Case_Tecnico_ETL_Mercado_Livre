@@ -17,7 +17,5 @@
 
 ## Riscos
 - **HTTP 403 em `/items`** impede responder à pergunta 2 (depende da permissão da aplicação).
-- **Code de uso único**: se expirar, gerar outro com `autenticar.py`.
-- **Credenciais**: nunca versionar o `.env`; se o Client Secret foi compartilhado, gere um novo no DevCenter.
-- **Mudanças nos campos da API** (`warranty`, `shipping`) podem exigir ajustes na transformação.
-- **SQLite**: adequado para execução local; não atende concorrência.
+- **Code de uso único**
+- **SQLite**: adequado para execução local.
