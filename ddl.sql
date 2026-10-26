@@ -1,6 +1,5 @@
 -- Modelo de dados do ETL Mercado Livre (SQLite).
--- Todas as tabelas possuem JOB_RUN: data/hora da execução, igual para todos os
--- registros de uma mesma corrida. Isso preserva o histórico de execuções.
+
 
 -- Produtos do catálogo encontrados na busca.
 CREATE TABLE IF NOT EXISTS etl_products (
