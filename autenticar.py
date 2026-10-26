@@ -1,9 +1,8 @@
 """Gera tokens de acesso quando for necessário (apoio à autenticação).
 
 Uso:
-    python autenticar.py --url              # mostra a URL para autorizar a aplicação
-    python autenticar.py --codigo TG-xxxx   # troca o code por tokens e grava no .env
-"""
+    python autenticar.py --url              # mostra a URL para autorizar a aplicação"""
+
 import caminhos_projeto  # noqa: F401  (registra as pastas numeradas)
 
 import argparse
